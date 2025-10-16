@@ -5,7 +5,7 @@ use MercadoPago\MercadoPagoConfig;
 
 require 'vendor/autoload.php';
 
-MercadoPagoConfig::setAccessToken("ACÁ VA EL TOKEN DE ACCESO DE PRUEBA ");
+MercadoPagoConfig::setAccessToken('APP_USR-3865369785003855-101116-730b8feac7c0ceffcd63df39e42227f6-2919985277');
 
 $client = new PreferenceClient();
 
@@ -34,13 +34,13 @@ $preference = $client->create([
 <body>
     <div id="wallet_container"></div>
     <script>
-        const mp = new MercadoPago('CREDENCIAL PUBLICA ',{
-            locale: 'es-AR'
+        const mp = new MercadoPago('APP_USR-1968c832-71a3-4182-baf2-4a98a9a970d7',{
+            locale: 'es-AR',
         });
 
         mp.bricks().create("wallet", "wallet_container",{
             initialization: {
-                preferenceId: <?php $preference->id; ?>
+                preferenceId: '<?php echo $preference->id; ?>',
             }
         })
     </script>
