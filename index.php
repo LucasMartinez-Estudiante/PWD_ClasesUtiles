@@ -20,7 +20,14 @@ $preference = $client->create([
     ],
     "statement_descriptor" => "mi prueba",
     "external_reference" => "CDP001",
-])
+]);
+
+$preference->back_urls = array(
+    "success" => "./exito.php",
+    "failure" => "./error.php",
+    "pending" => "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+);
+$preference->auto_return = "approved";
 ?>
 
 <!DOCTYPE html>
