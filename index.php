@@ -47,7 +47,7 @@ $request = [
         ],
         [
             "id" => "DEP-0002",
-            "title" => "pene de goma",
+            "title" => "pelota de basquetbol",
             "quantity" => 1,
             "unit_price" => 10,
         ],
