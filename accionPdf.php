@@ -69,6 +69,7 @@
     $pdf->Cell(0, 5, 'Total', 0, 1, 'L');
     $pdf->SetFont('Arial', '', 5.9);
 
+    $contador = 0;
     foreach ($items as $item){
       
       $pdf->Cell(68, 5, $item->title, 0, 0, 'L');
@@ -83,6 +84,7 @@
   
       $pdf->Cell(15, 5, $importe . " " . $payment->currency_id, 0, 1, 'L');
 
+      $contador += $importe;
     }
     $pdf->Cell(0, 5, 
     "---------------------------------------------------------------------------------------------------------------------------------------------",
@@ -91,7 +93,7 @@
     $pdf->SetFont('Arial', 'B', 10);
     
     //mostrar total
-    $total_formateado = number_format($importe, 2, '.', ',');
+    $total_formateado = number_format($contador, 2, '.', ',');
     $pdf->Cell(96, 5, 'Total: $ ' . $total_formateado, 0, 1, 'R');
     
     $pdf->Ln();
