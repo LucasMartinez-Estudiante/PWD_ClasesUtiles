@@ -23,24 +23,10 @@ require 'vendor/autoload.php';
  * 
  * ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
  */
-$stringLocalHostRun = "https://4a8109af46b491.lhr.life";
+$stringLocalHostRun = "https://1901e88c261d7a.lhr.life";
 
 MercadoPagoConfig::setAccessToken('APP_USR-3865369785003855-101116-730b8feac7c0ceffcd63df39e42227f6-2919985277');
 
-$client = new PreferenceClient();
-
-$preference = $client->create([
-    "items" => [
-        [
-            "id" => "DEP-0001",
-            "title" => "balon de futbol",
-            "quantity" => 2,
-            "unit_price" => 10,
-        ],
-    ],
-    "statement_descriptor" => "mi prueba",
-    "external_reference" => "CDP001",
-]);
 $request = [
     "back_urls" => [
         "success" => "$stringLocalHostRun/PWD_ClasesUtiles/exito.php",
@@ -57,15 +43,28 @@ $request = [
             "id" => "DEP-0001",
             "title" => "balon de futbol",
             "quantity" => 2,
-            "unit_price" => 10
-        ]
+            "unit_price" => 10,
         ],
-    "statement_descriptor" => "mi prueba",
-    "external_reference" => "CDP001",
-
-    "notification_url" => "$stringLocalHostRun/PWD_ClasesUtiles/exito.php"
-];
-
+        [
+            "id" => "DEP-0002",
+            "title" => "pene de goma",
+            "quantity" => 1,
+            "unit_price" => 10,
+        ],
+        [
+            "id" => "DEP-0003",
+            "title" => "pelota de tenis",
+            "quantity" => 3,
+            "unit_price" => 10,
+            ]
+        ],
+        "statement_descriptor" => "mi prueba",
+        "external_reference" => "CDP001",
+        
+        "notification_url" => "$stringLocalHostRun/PWD_ClasesUtiles/exito.php"
+    ];
+    
+$client = new PreferenceClient();
 $preference = $client->create($request);
 ?>
 
