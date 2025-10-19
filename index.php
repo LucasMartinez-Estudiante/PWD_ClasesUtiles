@@ -23,9 +23,38 @@ require 'vendor/autoload.php';
  * 
  * ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
  */
-$stringLocalHostRun = "https://1901e88c261d7a.lhr.life";
+$stringLocalHostRun = "https://73a7c31bed23f0.lhr.life";
 
 MercadoPagoConfig::setAccessToken('APP_USR-3865369785003855-101116-730b8feac7c0ceffcd63df39e42227f6-2919985277');
+
+$productos = [
+    [
+        "id" => "DEP-0001",
+        "title" => "balon de futbol",
+        "quantity" => 2,
+        "unit_price" => 10,
+        "img" => "view/images/futbol.webp"
+    ],
+    [
+        "id" => "DEP-0002",
+        "title" => "pelota de basquetbol",
+        "quantity" => 1,
+        "unit_price" => 10,
+        "img" => "view/images/basquet.webp"
+    ],
+    [
+        "id" => "DEP-0003",
+        "title" => "pelota de tenis",
+        "quantity" => 3,
+        "unit_price" => 10,
+        "img" => "view/images/tenis.webp"
+    ]
+];
+
+$total = 0;
+foreach ($productos as $p) {
+    $total += $p['unit_price'] * $p['quantity'];
+}
 
 $request = [
     "back_urls" => [
@@ -38,46 +67,44 @@ $request = [
         "surname" => "Lopez",
         "email" => "<PAYER_EMAIL>"
     ],
-    "items" => [
-        [
-            "id" => "DEP-0001",
-            "title" => "balon de futbol",
-            "quantity" => 2,
-            "unit_price" => 10,
-        ],
-        [
-            "id" => "DEP-0002",
-            "title" => "pelota de basquetbol",
-            "quantity" => 1,
-            "unit_price" => 10,
-        ],
-        [
-            "id" => "DEP-0003",
-            "title" => "pelota de tenis",
-            "quantity" => 3,
-            "unit_price" => 10,
-            ]
-        ],
-        "statement_descriptor" => "mi prueba",
-        "external_reference" => "CDP001",
-        
-        "notification_url" => "$stringLocalHostRun/PWD_ClasesUtiles/exito.php"
-    ];
-    
+    "items" => $productos,
+    "statement_descriptor" => "mi prueba",
+    "external_reference" => "CDP001",
+    "notification_url" => "$stringLocalHostRun/PWD_ClasesUtiles/exito.php"
+];
+
 $client = new PreferenceClient();
 $preference = $client->create($request);
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mi prueba de MP</title>
+    <title>Tienda Deportiva</title>
+    <link rel="stylesheet" href="view/css/index.css">
     <script src="https://sdk.mercadopago.com/js/v2"></script>
 </head>
 <body>
-    <div id="wallet_container"></div>
+
+    <main class="productos">
+        <?php foreach ($productos as $p): ?>
+            <div class="producto">
+                <img src="<?= $p['img'] ?>" alt="<?= $p['title'] ?>">
+                <h2><?= ucfirst($p['title']) ?></h2>
+                <p><strong>$<?= $p['unit_price'] ?></strong></p>
+                <span>Cantidad: <?= $p['quantity'] ?></span>
+            </div>
+        <?php endforeach; ?>
+    </main>
+
+    <div class="pago">
+        <h2>Finalizá tu compra</h2>
+        <p class="total">Total a pagar: <strong>$<?= $total ?></strong></p>
+        <div id="wallet_container"></div>
+    </div>
+
     <script>
         const mp = new MercadoPago('APP_USR-1968c832-71a3-4182-baf2-4a98a9a970d7',{
             locale: 'es-AR',

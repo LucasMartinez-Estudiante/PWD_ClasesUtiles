@@ -1,0 +1,159 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Inter", "Poppins", sans-serif;
+}
+
+body {
+    background: #f4f4f4;
+    color: #222;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+}
+
+
+main.productos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+    margin: 3rem 0;
+    width: 90%;
+    max-width: 1200px;
+}
+
+.producto {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+    overflow: hidden;
+    width: 260px;
+    transition: all 0.3s ease;
+    text-align: center;
+}
+
+.producto:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.12);
+}
+
+.producto img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-bottom: 1px solid #eee;
+}
+
+.producto h2 {
+    font-size: 1.1rem;
+    margin-top: 1rem;
+    color: #333;
+}
+
+.producto p {
+    color: #444;
+    margin: 0.4rem 0;
+    font-size: 1rem;
+}
+
+.producto span {
+    color: #777;
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+    display: block;
+}
+
+/* Sección de pago */
+.pago {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+    width: 90%;
+    max-width: 500px;
+    padding: 2rem;
+    margin-bottom: 3rem;
+    text-align: center;
+}
+
+.pago h2 {
+    font-size: 1.3rem;
+    font-weight: 500;
+    color: #333;
+    margin-bottom: 0.8rem;
+}
+
+.total {
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+    color: #222;
+}
+
+.total strong {
+    color: #111;
+    font-weight: 600;
+}
+
+/* Parte de exito */
+.exito-body {
+    background: #f4f4f4;
+    color: #222;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.exito-container {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    padding: 3rem 4rem;
+    text-align: center;
+    max-width: 500px;
+    width: 90%;
+}
+
+.exito-container h1 {
+    font-size: 1.8rem;
+    color: #333;
+    margin-bottom: 1rem;
+}
+
+.exito-container p {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 2rem;
+}
+
+.exito-form {
+    margin-bottom: 1.5rem;
+}
+
+.btn-pdf {
+    background: #007bff;
+    color: #fff;
+    font-size: 1rem;
+    padding: 0.7rem 1.5rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.btn-pdf:hover {
+    background: #0056b3;
+}
+
+.volver {
+    display: inline-block;
+    margin-top: 1rem;
+    color: #007bff;
+    text-decoration: none;
+    font-size: 0.95rem;
+}
+
+.volver:hover {
+    text-decoration: underline;
+}
