@@ -23,7 +23,7 @@ require 'vendor/autoload.php';
  * 
  * ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
  */
-$stringLocalHostRun = "https://73a7c31bed23f0.lhr.life";
+$stringLocalHostRun = "https://7009b85645453a.lhr.life";
 
 MercadoPagoConfig::setAccessToken('APP_USR-3865369785003855-101116-730b8feac7c0ceffcd63df39e42227f6-2919985277');
 
@@ -59,7 +59,7 @@ foreach ($productos as $p) {
 $request = [
     "back_urls" => [
         "success" => "$stringLocalHostRun/PWD_ClasesUtiles/exito.php",
-        "failure" => "./error.php",
+        "failure" => "$stringLocalHostRun/PWD_ClasesUtiles/error.php",
         "pending" => "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
     ],
     "payer" => [

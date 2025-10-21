@@ -98,7 +98,7 @@ main.productos {
 
 /* Parte de exito */
 .exito-body {
-    background: #f4f4f4;
+    background: #f0fff4; /* Verde muy claro */
     color: #222;
     display: flex;
     justify-content: center;
@@ -114,11 +114,12 @@ main.productos {
     text-align: center;
     max-width: 500px;
     width: 90%;
+    border-top: 6px solid #28a745; /* Verde para marcar éxito */
 }
 
 .exito-container h1 {
     font-size: 1.8rem;
-    color: #333;
+    color: #1e7e34;
     margin-bottom: 1rem;
 }
 
@@ -133,23 +134,65 @@ main.productos {
 }
 
 .btn-pdf {
-    background: #007bff;
+    background: #28a745;
     color: #fff;
     font-size: 1rem;
     padding: 0.7rem 1.5rem;
     border: none;
     border-radius: 8px;
     cursor: pointer;
+    transition: background 0.3s ease;
 }
 
 .btn-pdf:hover {
-    background: #0056b3;
+    background: #1e7e34;
 }
 
 .volver {
     display: inline-block;
     margin-top: 1rem;
-    color: #007bff;
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: color 0.3s ease;
+}
+
+/* Parte de error */
+.error-body {
+    background: #fff0f0;
+    color: #222;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.error-container {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    padding: 3rem 4rem;
+    text-align: center;
+    max-width: 500px;
+    width: 90%;
+    border-top: 6px solid #dc3545; /* Rojo para marcar error */
+}
+
+.error-container h1 {
+    font-size: 1.8rem;
+    color: #b00020;
+    margin-bottom: 1rem;
+}
+
+.error-container p {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 2rem;
+}
+
+
+.volver {
+    display: inline-block;
+    margin-top: 1rem;
     text-decoration: none;
     font-size: 0.95rem;
 }
