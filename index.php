@@ -59,8 +59,7 @@ foreach ($productos as $p) {
 $request = [
     "back_urls" => [
         "success" => "$stringLocalHostRun/PWD_ClasesUtiles/exito.php",
-        "failure" => "$stringLocalHostRun/PWD_ClasesUtiles/error.php",
-        "pending" => "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+        "failure" => "$stringLocalHostRun/PWD_ClasesUtiles/error.php"
     ],
     "payer" => [
         "name" => "Juan",
