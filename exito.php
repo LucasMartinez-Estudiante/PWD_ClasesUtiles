@@ -6,7 +6,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Pago Exitoso</title>
-  <link rel="stylesheet" href="view/css/index.css">
+  <link rel="stylesheet" href="css/index.css">
 </head>
 <body class="exito-body">
   <div class="exito-container">

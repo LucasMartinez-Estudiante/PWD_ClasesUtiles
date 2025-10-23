@@ -4,6 +4,7 @@ use MercadoPago\Client\Preference\PreferenceClient;
 use MercadoPago\MercadoPagoConfig;
 
 require 'vendor/autoload.php';
+include_once __DIR__ . '/config.php';
 
 /**
  * Esta variable ($stringLocalHostRun) tiene el propósito de ser reemplazada manualmente cada vez que se genera un nuevo link "localhost.run"
@@ -23,9 +24,10 @@ require 'vendor/autoload.php';
  * 
  * ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
  */
-$stringLocalHostRun = "https://7009b85645453a.lhr.life";
+$stringLocalHostRun = "https://9bdd6dab345cb3.lhr.life";
 
-MercadoPagoConfig::setAccessToken('APP_USR-3865369785003855-101116-730b8feac7c0ceffcd63df39e42227f6-2919985277');
+
+MercadoPagoConfig::setAccessToken($accessToken);
 
 $productos = [
     [
@@ -33,21 +35,21 @@ $productos = [
         "title" => "balon de futbol",
         "quantity" => 2,
         "unit_price" => 10,
-        "img" => "view/images/futbol.webp"
+        "img" => "images/futbol.webp"
     ],
     [
         "id" => "DEP-0002",
         "title" => "pelota de basquetbol",
         "quantity" => 1,
         "unit_price" => 10,
-        "img" => "view/images/basquet.webp"
+        "img" => "images/basquet.webp"
     ],
     [
         "id" => "DEP-0003",
         "title" => "pelota de tenis",
         "quantity" => 3,
         "unit_price" => 10,
-        "img" => "view/images/tenis.webp"
+        "img" => "images/tenis.webp"
     ]
 ];
 
@@ -82,7 +84,7 @@ $preference = $client->create($request);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tienda Deportiva</title>
-    <link rel="stylesheet" href="view/css/index.css">
+    <link rel="stylesheet" href="css/index.css">
     <script src="https://sdk.mercadopago.com/js/v2"></script>
 </head>
 <body>
@@ -105,7 +107,9 @@ $preference = $client->create($request);
     </div>
 
     <script>
-        const mp = new MercadoPago('APP_USR-1968c832-71a3-4182-baf2-4a98a9a970d7',{
+        const MERCADOPAGO_PUBLIC_KEY = "<?= $publicKey ?>";
+
+        const mp = new MercadoPago(MERCADOPAGO_PUBLIC_KEY,{
             locale: 'es-AR',
         });
 

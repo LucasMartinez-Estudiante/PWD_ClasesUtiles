@@ -1,9 +1,11 @@
 <?php
   include_once __DIR__ . '/vendor/autoload.php';
+  include_once __DIR__ . '/config.php';
 
   use MercadoPago\MercadoPagoConfig;
   use MercadoPago\Client\Payment\PaymentClient;
-  MercadoPagoConfig::setAccessToken('APP_USR-3865369785003855-101116-730b8feac7c0ceffcd63df39e42227f6-2919985277');
+  MercadoPagoConfig::setAccessToken($accessToken);
+
 
   $payment_id = $_POST['payment_id'] ?? null;
 
@@ -23,13 +25,11 @@
     
     $pdf->AddPage();
     $pdf->SetMargins(8, 0, 0);
-    // $pdf->Image("./img/mercadopago.png", 12, 12, 20, 20, 'PNG');
     $pdf->Ln(3);
     $pdf->SetFont('Arial', 'B', 9);
     $pdf->Cell(98, 5, "Ejemplo empresa", 0, 2, 'R');
     $pdf->SetFont('Arial', '', 4);
     $pdf->Cell(100, 5, "Buenos Aires 1400, Neuquen Capital, Argentina", 0, 2, 'R');
-    // $pdf->Image("./img/whatsapp.png", 76, 27, 6, 6, 'PNG');
     $pdf->Cell(90, 5, "Tel.: 0299-4490300", 0, 2, 'R');
     $pdf->Ln(12);
     $pdf->SetFont('Arial', 'B', 7);
@@ -49,14 +49,7 @@
     $pdf->Cell(18, 5, mb_convert_encoding("E-mail: ", 'ISO-8859-1', 'UTF-8'), 0, 0, 'L');
     $pdf->SetFont('Arial', '', 7);
     $pdf->Cell(5, 5, $payer->email, 0, 1, 'L');
-    // $pdf->SetFont('Arial', 'B', 7);
-    // $pdf->Cell(6, 5, "DNI: ", 0, 0, 'L');
-    // $pdf->SetFont('Arial', '', 7);
-    // $pdf->Cell(25, 5, "12.345.678", 0, 1, 'L');
-    // $pdf->SetFont('Arial', 'B', 7);
-    // $pdf->Cell(18, 5, mb_convert_encoding("Teléfono: ", 'ISO-8859-1', 'UTF-8'), 0, 0, 'L');
     $pdf->SetFont('Arial', '', 7);
-    // $pdf->Cell(25, 5, "11.2233.4455", 0, 1, 'L');
     $pdf->Cell(20, 5, "-----------------------------------------------------------------------------------------------------------------------------", 0, 0, 'L');
     $pdf->Ln();
     $pdf->SetFont('Arial', 'B', 9);
